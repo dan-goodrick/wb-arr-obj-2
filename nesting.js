@@ -11,34 +11,34 @@
 // Do not edit the code below.
 var employees = [
   {
-    firstName: 'Von',
-    lastName: 'Budibent',
-    email: 'vbudibent0@163.com',
-    department: 'Sales',
+    firstName: "Von",
+    lastName: "Budibent",
+    email: "vbudibent0@163.com",
+    department: "Sales",
   },
   {
-    firstName: 'Catherina',
-    lastName: 'Swalowe',
-    email: 'cswalowe1@example.com',
-    department: 'Engineering',
+    firstName: "Catherina",
+    lastName: "Swalowe",
+    email: "cswalowe1@example.com",
+    department: "Engineering",
   },
   {
-    firstName: 'Theo',
-    lastName: 'Trill',
-    email: 'ttrill2@sina.com.cn',
-    department: 'Services',
+    firstName: "Theo",
+    lastName: "Trill",
+    email: "ttrill2@sina.com.cn",
+    department: "Services",
   },
   {
-    firstName: 'Elsy',
-    lastName: 'McCrorie',
-    email: 'emccrorie3@netscape.com',
-    department: 'Legal',
+    firstName: "Elsy",
+    lastName: "McCrorie",
+    email: "emccrorie3@netscape.com",
+    department: "Legal",
   },
   {
-    firstName: 'Lorie',
-    lastName: 'Handsheart',
-    email: 'lhandsheart4@fotki.com',
-    department: 'Research and Development',
+    firstName: "Lorie",
+    lastName: "Handsheart",
+    email: "lhandsheart4@fotki.com",
+    department: "Research and Development",
   },
 ];
 // Do not edit the code above.
@@ -50,8 +50,19 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
+const employeeUpdater = () => {
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].firstName === "Theo") {
+      employees.splice(i, 1);
+    }
+    if (employees[i].firstName === "Lorie") {
+      employees[i].department = "HR";
+    }
+  }
+  return employees
+};
+employeeUpdater(employees);
+console.log(employees)
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
@@ -67,20 +78,23 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-
+const removeDuplicates = workplaceAccidents.filter(function(val, index) {
+  return workplaceAccidents.indexOf(val) === index
+})
+console.log(removeDuplicates)
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
 var cat = {
-  name: 'Fluffy',
+  name: "Fluffy",
   catFriends: [
     {
-      name: 'Grumpy',
-      activities: ['be grumpy', 'eat food'],
+      name: "Grumpy",
+      activities: ["be grumpy", "eat food"],
     },
     {
-      name: 'Lazy Bones',
-      activities: ['sleep', 'pre-sleep naps'],
+      name: "Lazy Bones",
+      activities: ["sleep", "pre-sleep naps"],
     },
   ],
 };
@@ -93,30 +107,31 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name
+console.log(fluffy2ndFriend)
 
 ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
 var myCar = {
-  make: 'Toyota',
-  model: 'Corolla',
+  make: "Toyota",
+  model: "Corolla",
   year: 1992,
   accidents: [
     {
-      date: '3/15/93',
-      damage: '$5,000',
+      date: "3/15/93",
+      damage: "$5,000",
       atFaultForAccident: true,
     },
     {
-      date: '7/4/98',
-      damage: '$2,200',
+      date: "7/4/98",
+      damage: "$2,200",
       atFaultForAccident: true,
     },
     {
-      date: '6/22/99',
-      damage: '$7,900',
+      date: "6/22/99",
+      damage: "$7,900",
       atFaultForAccident: true,
     },
   ],
@@ -131,8 +146,12 @@ var myCar = {
     2. Loop over the accidents array.
     3. Change atFaultForAccident from true to false.
 */
-
-//Code Here
+const recordCleaner = arr => arr.map(obj => {
+  obj.atFaultForAccident=false
+  return obj
+})
+console.log(recordCleaner(myCar.accidents))
+  
 
 ////////// PROBLEM 5 //////////
 
@@ -152,5 +171,8 @@ var numsArr = [
         If the number is even, replace it with 'even'.
     4. Return the modified numsArr.
 */
+// TODO
+const looper = arr => arr.map((arr2, idx) => arr2 => arr2.map((val, idx2) => val % 2? "odd": "even"))
+  
 
-//Code Here
+console.log(looper(numsArr))
