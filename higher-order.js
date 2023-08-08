@@ -136,7 +136,7 @@ const monstersInYourPocket = [
 */
 
 //Code Here
-let myStrongest = monstersInYourPocket.filter(function(obj){
+let myStrongest = monstersInYourPocket.filter((obj)=>{
   return obj.CP > 200
 })
 console.log(myStrongest)
@@ -161,9 +161,7 @@ const orders = [
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals = orders.map(function(obj){
-  return obj.price*(1+obj.tax)
-})
+let orderTotals = orders.map((obj)=>obj.price*(1+obj.tax))
 console.log(orderTotals)
 ////////// PROBLEM 6 //////////
 

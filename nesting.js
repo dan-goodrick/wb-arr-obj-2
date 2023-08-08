@@ -50,19 +50,23 @@ var employees = [
     3. Return the updated employee array.
 */
 
-const employeeUpdater = () => {
-  for (let i = 0; i < employees.length; i++) {
-    if (employees[i].firstName === "Theo") {
-      employees.splice(i, 1);
+const employeeUpdater = () =>
+  employees.filter((obj) => {
+    if (obj.firstName === "Lorie") {
+      obj.department = "HR";
     }
-    if (employees[i].firstName === "Lorie") {
-      employees[i].department = "HR";
-    }
-  }
-  return employees
-};
+    return obj.firstName !== "Theo";
+  });
+
+// const employeeUpdater2 = () =>
+//   employees.map((obj, i) => {
+//     if (obj.firstName === "Lorie") {
+//       obj.department = "HR";
+//     }
+//     return obj.firstName !== "Theo";
+//   });
 employeeUpdater(employees);
-console.log(employees)
+console.log(employees);
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
@@ -78,10 +82,11 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-const removeDuplicates = workplaceAccidents.filter(function(val, index) {
-  return workplaceAccidents.indexOf(val) === index
-})
-console.log(removeDuplicates)
+const removeDuplicates = () =>
+  workplaceAccidents.filter(function (val, index) {
+    return workplaceAccidents.indexOf(val) === index;
+  });
+console.log(removeDuplicates());
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
@@ -108,8 +113,8 @@ var cat = {
 
 //Code Here
 var grumpyActivity = cat.catFriends[0].activities[1];
-var fluffy2ndFriend = cat.catFriends[1].name
-console.log(fluffy2ndFriend)
+var fluffy2ndFriend = cat.catFriends[1].name;
+console.log(fluffy2ndFriend);
 
 ////////// PROBLEM 4 //////////
 
@@ -146,12 +151,19 @@ var myCar = {
     2. Loop over the accidents array.
     3. Change atFaultForAccident from true to false.
 */
-const recordCleaner = arr => arr.map(obj => {
-  obj.atFaultForAccident=false
-  return obj
-})
-console.log(recordCleaner(myCar.accidents))
-  
+// const recordCleaner = (arr) =>
+// myCar.accidents.map((obj) => {
+//     obj.atFaultForAccident = false;
+//     return obj;
+//   });
+
+function recordCleaner() {
+  myCar.accidents.forEach((record, i) => {
+    myCar.accidents[i].atFaultForAccident = false;
+  });
+}
+recordCleaner();
+console.log(myCar);
 
 ////////// PROBLEM 5 //////////
 
@@ -171,8 +183,14 @@ var numsArr = [
         If the number is even, replace it with 'even'.
     4. Return the modified numsArr.
 */
-// TODO
-const looper = arr => arr.map((arr2, idx) => arr2 => arr2.map((val, idx2) => val % 2? "odd": "even"))
-  
 
-console.log(looper(numsArr))
+const looper = function () {
+  return numsArr.map((arr) => {
+    arr.forEach((val, i) => {
+      arr[i] = val % 2 ? "odd" : "even";
+    });
+    return arr
+  });
+};
+// const newArr = looper();
+// console.log(looper());
